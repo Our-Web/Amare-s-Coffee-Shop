@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheet.css">
-        <link rel="icon" href="logo/amare-logo.png">
-    <title>Amares Coffee Shop</title>
+    <link rel="icon" href="logo/amare-logo.png">
+    <title>Amare's Coffee Shop</title>
     </head>
 
     <body>
       <div class="nav-container">
-        <img src="logo/new logo.png" alt="Amare's Coffee Shop" class="logo">
+        <img src="logo/new logo.png" alt="Amares Coffee Shop" class="logo">
         
         <div class="nav">
             <button onclick="navigate('home')">Home</button>
@@ -117,11 +117,53 @@ Your comfort matters, and your coffee is just a tap away.
         </div>
        
         <div class="container" id="about" style="display: none;">
-            <h2><b>About Us: </b></h2>
-            <p>We are students. <br> We created this platform as a project for our Introduction to computing course.</p>
-            <br>
-            <p>Our Goal is to apply what we've learned through out our journey to a real buiness</p>
-         </div>
+            <h2><b>About Us</b></h2>
+            <p>We are students. We created this platform as a project for our Introduction to Computing course.</p>
+            <p style="margin-bottom: 30px;">Our goal is to apply the knowledge we learned throughout this journey into a real business.</p>
+            
+            <div class="shop-grid">
+                <div class="product-card">
+                    <img src="logo/amare.jpg" alt="Amare">
+                    <h2>Literal na Americano</h2>
+                    <h4>"Amare Brandon Proponga"</h4>
+                    <p>The owner of Amares Coffee Shop</p>
+                    <p>Age: 42 | Height: 149cm</p>
+                    <p class="price">Owner & Coder</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="logo/gibo.jpg" alt="Gibo">
+                    <h2>Medjo Latte</h2>
+                    <h3>"Gibo" Gilbert Paduga</h3>
+                    <h5>Age: 1500 BCE</h5>
+                    <p class="price">Documenter</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="logo/ton.jpg" alt="Ton">
+                    <h2>Medjo Cafe Mocha</h2>
+                    <h3>"Ton" Henry Tana</h3>
+                    <h5>Age: 1300 BCE</h5>
+                    <p class="price">Researcher</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="logo/lando.jpg" alt="Orlando">
+                    <h2>Muntik na Cappuccino</h2>
+                    <h3>John "Orlando" Palay</h3>
+                    <h5>Age: 2000 BCE</h5>
+                    <p class="price">Designer</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="logo/jerick.jpg" alt="Jerick">
+                    <h2>Vanilla Latte ang kulay</h2>
+                    <h3>John Jerick "Pogi" Mandal</h3>
+                    <h5>Age: 19 Years Old</h5>
+                    <p class="price">Coder/Designer</p>
+                </div>
+            </div>
+        </div>
 
 
         <script>
@@ -136,13 +178,11 @@ Your comfort matters, and your coffee is just a tap away.
                 let item = { name: productName, price: price };
                 cart.push(item);
                 
-                // Update Badge
                 document.getElementById('cart-count').innerText = `(${cart.length})`;
                 alert(`Added ${productName} to cart.`);
             }
 
             function buyNow(productName, price) {
-                // Direct buy - clears cart and adds just this item
                 cart = [{ name: productName, price: price }];
                 checkout();
             }
@@ -181,8 +221,4 @@ Your comfort matters, and your coffee is just a tap away.
             }
         </script>
     </body>
-
 </html>
-
-
-
