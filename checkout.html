@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Checkout - Amare's Coffee Shop</title>
+</head>
+<body>
+
+    <div class="nav-container">
+        <img src="logo/logo.png" alt="Amare's Coffee Shop" class="logo">
+        <div class="nav">
+            <button onclick="window.location.href='index.html'">Back to Menu</button>
+        </div>
+    </div>
+
+    <div class="container" style="justify-content: flex-start; padding-top: 50px;">
+        
+        <div class="checkout-card">
+            <h1>Finalize Your Order</h1>
+            
+            <div id="order-summary">
+                <h3>Order Summary</h3>
+                <div id="summary-list">
+                    </div>
+                <div class="total-line">
+                    <span>Total To Pay:</span>
+                    <span id="final-total">PHP 0.00</span>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <label for="name">Code Name (Name on Cup)</label>
+                <input type="text" id="name" name="name" placeholder="Ex: Spiderman" required>
+                
+                <label for="addsOn">Special Instructions / Add-ons</label>
+                <textarea id="addsOn" name="addsOn" placeholder="Ex: Less ice, 2 pumps vanilla..."></textarea>
+
+                <button type="submit" class="button" style="width: 100%;">Confirm & Pay</button>
+            </form>
+        </div>
+
+        <div id="confirmation-message" style="display: none; text-align: center; margin-top: 20px;">
+            <div class="product-card" style="background: #5a4634;">
+                <h2>Thank you!</h2>
+                <p>Your order for <span id="confirmed-name" style="font-weight:bold; color: #ffd700;"></span> has been placed.</p>
+                <p>Please wait for your name to be called.</p>
+                <button class="button" style="background: white; color: #5a4634; margin-top: 15px;" onclick="window.location.href='index.html'">Order More</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // To load the cart
+        const cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        const summaryList = document.getElementById('summary-list');
+        const finalTotal = document.getElementById('final-total');
+
+        if (cart.length === 0) {
+            summaryList.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price;
+                summaryList.innerHTML += `
+                    <div class="summary-item">
+                        <span>${item.name}</span>
+                        <span>${item.price.toFixed(2)}</span>
+                    </div>
+                `;
+            });
+            finalTotal.innerText = "PHP " + total.toFixed(2);
+        }
+
+        // For Submition
+        document.getElementById("checkout-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+
+            document.querySelector('.checkout-card').style.display = "none";
+            document.getElementById("confirmation-message").style.display = "block";
+            document.getElementById("confirmed-name").innerText = name;
+
+            // To remove item from the cart
+            localStorage.removeItem('myCart');
+        });
+    </script>
+</body>
+</html>
