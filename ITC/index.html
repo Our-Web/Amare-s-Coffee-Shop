@@ -1,0 +1,181 @@
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Amare's Coffee Shop</title>
+    </head>
+
+    <body>
+      <div class="nav-container">
+        <img src="logo/new logo.png" alt="Amare's Coffee Shop" class="logo">
+        
+        <div class="nav">
+            <button onclick="navigate('home')">Home</button>
+            <button onclick="navigate('shop')">Shop</button>
+            <button onclick="navigate('about')">About Us</button>
+            <button onclick="showCart()">Cart <span id="cart-count">(0)</span></button>
+        </div>
+      </div>
+
+        <div class="container" id="home">
+            <h1>Welcome to our website</h1>
+            <p>This website is designed to offer a smoother, more convenient way to enjoy your visit. Explore our menu, customize your coffee, and place your order directly from your device — no need to wait for a server.
+It's a refined, effortless approach to ordering, created to save you time while ensuring you still receive the quality and warmth our shop is known for.
+Your comfort matters, and your coffee is just a tap away.
+            </p>
+            <button class="button" onclick="navigate('shop')">Shop Now</button>
+        </div>
+
+        <div class="container" id="shop" style="display: none;">
+            <h2>Our Menu</h2>
+            <div class="shop-grid">
+                
+                <div class="product-card">
+                    <img src="coffee/cafe americano.jpg" alt="Americano">
+                    <h3>Americano</h3>
+                    <p class="price">PHP 250.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Americano', 250.99)">Buy Now</button>
+                        <button onclick="addToCart('Americano', 250.99)">Add +</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="coffee/capuccino.png" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p class="price">PHP 260.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Cappuccino', 260.99)">Buy Now</button>
+                        <button onclick="addToCart('Cappuccino', 260.99)">Add +</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="coffee/caramel machiato.png" alt="Caramel Macchiato">
+                    <h3>Caramel Macchiato</h3>
+                    <p class="price">PHP 280.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Caramel Macchiato', 280.99)">Buy Now</button>
+                        <button onclick="addToCart('Caramel Macchiato', 280.99)">Add +</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="coffee/cafe latte.png" alt="Cafe Latte">
+                    <h3>Cafe Latte</h3>
+                    <p class="price">PHP 270.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Cafe Latte', 270.99)">Buy Now</button>
+                        <button onclick="addToCart('Cafe Latte', 270.99)">Add +</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="coffee/cafe mocha.png" alt="Cafe Mocha">
+                    <h3>Cafe Mocha</h3>
+                    <p class="price">PHP 275.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Cafe Mocha', 275.99)">Buy Now</button>
+                        <button onclick="addToCart('Cafe Mocha', 275.99)">Add +</button>
+                    </div>
+                </div>
+
+                 <div class="product-card">
+                    <img src="coffee/lavender cafe.png" alt="Lavender Cafe">
+                    <h3>Lavender Cafe</h3>
+                    <p class="price">PHP 290.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Lavender Cafe', 290.99)">Buy Now</button>
+                        <button onclick="addToCart('Lavender Cafe', 290.99)">Add +</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="coffee/vanilla latte.png" alt="Vanilla Latte">
+                    <h3>Vanilla Latte</h3>
+                    <p class="price">PHP 270.99</p>
+                    <div class="card-buttons">
+                        <button onclick="buyNow('Vanilla Latte', 270.99)">Buy Now</button>
+                        <button onclick="addToCart('Vanilla Latte', 270.99)">Add +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="cart-view" style="display: none;">
+            <h2>Your Cart</h2>
+            <div id="cart-items-list" style="width: 100%; max-width: 600px; text-align: left; margin-bottom: 20px;">
+                </div>
+            <h3 style="margin-bottom: 20px;">Total: <span id="cart-total">PHP 0.00</span></h3>
+            <div class="card-buttons">
+                <button class="button" onclick="navigate('shop')">Keep Shopping</button>
+                <button class="button" onclick="checkout()">Proceed to Checkout</button>
+            </div>
+        </div>
+       
+        <div class="container" id="about" style="display: none;">
+            <h2><b>About Us: </b></h2>
+            <p>This is our project for Introduction to Computing (Short Thesis)</p>
+         </div>
+
+
+        <script>
+            let cart = [];
+
+            function navigate(section) {
+                document.querySelectorAll('.container').forEach(div => div.style.display = 'none');
+                document.getElementById(section).style.display = 'flex';
+            }
+           
+            function addToCart(productName, price) {
+                let item = { name: productName, price: price };
+                cart.push(item);
+                
+                // Update Badge
+                document.getElementById('cart-count').innerText = `(${cart.length})`;
+                alert(`Added ${productName} to cart.`);
+            }
+
+            function buyNow(productName, price) {
+                // Direct buy - clears cart and adds just this item
+                cart = [{ name: productName, price: price }];
+                checkout();
+            }
+
+            function showCart() {
+                navigate('cart-view');
+                let listContainer = document.getElementById('cart-items-list');
+                let totalElement = document.getElementById('cart-total');
+                
+                listContainer.innerHTML = '';
+                let total = 0;
+
+                if (cart.length === 0) {
+                    listContainer.innerHTML = '<p style="text-align:center; color: #5a4634;">Your cart is empty.</p>';
+                } else {
+                    cart.forEach((item, index) => {
+                        total += item.price;
+                        listContainer.innerHTML += `
+                            <div style="background: rgba(255,255,255,0.4); padding: 10px; margin-bottom: 10px; border-radius: 5px; display: flex; justify-content: space-between; border-bottom: 1px solid #5a4634;">
+                                <span>${index + 1}. ${item.name}</span>
+                                <span>PHP ${item.price.toFixed(2)}</span>
+                            </div>
+                        `;
+                    });
+                }
+                totalElement.innerText = 'PHP ' + total.toFixed(2);
+            }
+
+            function checkout() {
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                } else {
+                    localStorage.setItem('myCart', JSON.stringify(cart));
+                    window.location.href = 'checkout.html';
+                }
+            }
+        </script>
+    </body>
+</html>
