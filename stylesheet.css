@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,33 +10,92 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #f5f3ef;
-    color: #2b2b2b;
-    text-align: center;
+    background-image: url(logo/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: top;
     transition: opacity 0.2s ease-in-out;
+    color: black;
 }
 
+/*Homepage text*/
+#home h1{
+    color: #ffd700;
+}
+#home p {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+#hero-btn {
+    background-color: #ffd700;
+    color: #5a4634;
+    font-weight: bold;
+    border: 2px solid #ffd700;
+    font-size: 20px;
+    padding: 16px 40px;
+    margin-top: 50px;
+}
+
+#hero-btn:hover {
+    color: #ffd700;
+    background-color: transparent;
+    transform: scale(1.05);
+}
+
+.checkout-card,
+.checkout-card h2,
+.checkout-card h3,
+.checkout-card span,
+.checkout-card div{
+    color: #2b2b2b !important;
+    text-shadow: none !important;
+}
+
+.summary-item,
+.summary-item {
+    color: #2b2b2b !important;
+}
 /* NAVIGATION BAR */
 .nav-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 40px;
-    background-color: #5a4634;
+    background-color: black;
+    opacity: 77%;
     border-bottom: 3px solid rgba(0, 0, 0, 0.3);
     position: relative; 
     min-height: 80px;
 }
 
-.logo {
-    width: 150px;
+.logo, .logo-right {
     max-width: 100%;
     position: absolute; 
-    left: 40px; 
-    top: 50%;
     transform: translateY(-50%); 
 }
 
+.logo {
+    left: 40px;
+    width: 150px;
+    top: 0%;
+    
+
+}
+
+.logo-right {
+    right: 40px;
+    left: auto;
+    width: 100px;
+    height: 70px;
+    top: 45px;
+    bottom: 0;
+    position: absolute;
+
+
+}
 .nav {
     display: flex;
     gap: 20px;
@@ -64,24 +127,74 @@ body {
     justify-content: center;
     align-items: center;
     padding: 40px;
-    background-color: #e8d8c8;
+    background-image: url(logo/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;   
 }
 
 h1 {
     font-size: 2.8rem;
-    margin-bottom: 20px;
-    color: #3a2d28;
+    margin-bottom: 50px;
+    color: #ffd700;
 }
 
 p {
     max-width: 700px;
     line-height: 1.6;
     font-size: 1.1rem;
+    text-align: center;
 }
 
-/* BUTTON STYLE */
+/*Hover effect*/
+.img-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 0;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 70, 52, 0.9);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    cursor: help;
+}
+
+
+.img-container:hover .overlay {
+    opacity: 1; 
+}
+
+.overlay p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+/* BUTTON for shop now */
 .button {
-    margin-top: 20px;
+    margin-bottom: 300px;
     background-color: #5a4634;
     color: white;
     padding: 14px 32px;
@@ -89,14 +202,35 @@ p {
     border-radius: 6px;
     font-size: 18px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
     background-color: #d9c3ac;
     color: #2b2b2b;
+    transform: translateY(-2px);
 }
 
+.remove-btn{
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.remove-btn:hover{
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
 /* SHOP LAYOUT */
 .shop-grid {
     display: grid;
@@ -173,7 +307,7 @@ p {
 
 /* CHECKOUT */
 .checkout-card {
-    background-color: white;
+    background-color: #f5e6D3;
     padding: 40px;
     border-radius: 15px;
     width: 100%;
@@ -246,6 +380,45 @@ label {
     font-weight: 600;
     color: #333;
 }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.98); }
+}
+
+h1, h2, p, .button, .logo {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.logo {animation-delay: 0s;}
+h1 { animation-delay: 0.1s; }
+p { animation-delay: 0.2s; }
+.button { animation-delay: 0.3s; }
+
+.product-card, .summary-item {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.product-card:nth-child(1) { animation-delay: 0.1s; }
+.product-card:nth-child(2) { animation-delay: 0.1.15s; }
+.product-card:nth-child(3) { animation-delay: 0.2s; }
+.product-card:nth-child(4) { animation-delay: 0.25s; }
+.product-card:nth-child(5) { animation-delay: 0.3s; }
+.product-card:nth-child(6) { animation-delay: 0.35s; }
+.product-card:nth-child(7) { animation-delay: 0.4ss; }
 
 /*For mobile phones*/
 @media (max-width: 768px) {
