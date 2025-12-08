@@ -10,7 +10,7 @@
 <body>
 
     <div class="nav-container">
-        <img src="logo/new logo.png" alt="Amare's Coffee Shop" class="logo">
+        <img src="logo/new logo.png" alt="Amares Coffee Shop" class="logo">
         <div class="nav">
             <button onclick="window.location.href='index.html'">Back to Menu</button>
         </div>
@@ -43,7 +43,7 @@
         </div>
 
         <div id="confirmation-message" style="display: none; text-align: center; margin-top: 20px;">
-            <div class="product-card" style="background: #5a4634;">
+            <div class="product-card" style="background: #5a4634; max-width: 100%;">
                 <h2>Thank you!</h2>
                 <p>Your order for <span id="confirmed-name" style="font-weight:bold; color: #ffd700;"></span> has been placed.</p>
                 <p>Please wait for your name to be called.</p>
@@ -54,37 +54,67 @@
     </div>
 
     <script>
-        // To load the cart
-        const cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+        
         const summaryList = document.getElementById('summary-list');
         const finalTotal = document.getElementById('final-total');
 
-        if (cart.length === 0) {
-            summaryList.innerHTML = "<p>Your cart is empty.</p>";
-        } else {
+        // 2. Function to Draw the List
+        function renderCart() {
+            summaryList.innerHTML = ''; // Clear the current list
             let total = 0;
-            cart.forEach(item => {
-                total += item.price;
-                summaryList.innerHTML += `
-                    <div class="summary-item">
-                        <span>${item.name}</span>
-                        <span>${item.price.toFixed(2)}</span>
-                    </div>
-                `;
-            });
-            finalTotal.innerText = "PHP " + total.toFixed(2);
+
+            if (cart.length === 0) {
+                summaryList.innerHTML = "<p>Your cart is empty.</p>";
+                finalTotal.innerText = "PHP 0.00";
+                document.querySelector('button[type="submit"]').disabled = true;
+                document.querySelector('button[type="submit"]').style.background = "#ccc";
+            } else {
+                document.querySelector('button[type="submit"]').disabled = false;
+                document.querySelector('button[type="submit"]').style.background = "#5a4634";
+
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    summaryList.innerHTML += `
+                        <div class="summary-item">
+                            <span>${item.name}</span>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span>${item.price.toFixed(2)}</span>
+                                <button type="button" class="remove-btn" onclick="removeItem(${index})">X</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                finalTotal.innerText = "PHP " + total.toFixed(2);
+            }
         }
 
-        // For Submition
+
+        function removeItem(index) {
+
+            cart.splice(index, 1);
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            
+            renderCart();
+        }
+
+        renderCart();
+
+        // Handle the Submit
         document.getElementById("checkout-form").addEventListener("submit", function(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
+            
+            if(cart.length === 0) {
+                alert("You can't pay for an empty cart!");
+                return;
+            }
 
+            const name = document.getElementById('name').value;
             document.querySelector('.checkout-card').style.display = "none";
             document.getElementById("confirmation-message").style.display = "block";
             document.getElementById("confirmed-name").innerText = name;
 
-            // To remove item from the cart
+            // Clear Cart after payment
             localStorage.removeItem('myCart');
         });
     </script>
