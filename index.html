@@ -18,6 +18,8 @@
             <button onclick="navigate('about')">About Us</button>
             <button onclick="showCart()">Cart <span id="cart-count">(0)</span></button>
         </div>
+        
+        <img src="logo/logo-right.png" alt="Amares Coffee Shop" class="logo-right">
       </div>
 
         <div class="container" id="home">
@@ -26,95 +28,137 @@
 It's a refined, effortless approach to ordering, created to save you time while ensuring you still receive the quality and warmth our shop is known for.
 Your comfort matters, and your coffee is just a tap away.
             </p>
-            <button class="button" onclick="navigate('shop')">Shop Now</button>
+            <button class="button" id="hero-btn" onclick="navigate('shop')">Shop Now</button>
         </div>
 
         <div class="container" id="shop" style="display: none;">
             <h2>Our Menu</h2>
-            <div class="shop-grid">
-                
-                <div class="product-card">
-                    <img src="coffee/cafe americano.jpg" alt="Americano">
-                    <h3>Americano</h3>
-                    <p class="price">PHP 250.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Americano', 250.99)">Buy Now</button>
-                        <button onclick="addToCart('Americano', 250.99)">Add +</button>
-                    </div>
-                </div>
+           <div class="shop-grid">
+    
+    <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/cafe americano.jpg" alt="Americano">
+            <div class="overlay">
+                <p>Espresso diluted with hot water. Strong, bold, and no-nonsense.</p>
+            </div>
+        </div>
+        <h3>Americano</h3>
+        <p class="price">PHP 250.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Americano', 250.99)">Buy Now</button>
+            <button onclick="addToCart('Americano', 250.99)">Add +</button>
+        </div>
+    </div>
 
-                <div class="product-card">
-                    <img src="coffee/capuccino.png" alt="Cappuccino">
-                    <h3>Cappuccino</h3>
-                    <p class="price">PHP 260.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Cappuccino', 260.99)">Buy Now</button>
-                        <button onclick="addToCart('Cappuccino', 260.99)">Add +</button>
-                    </div>
-                </div>
+    <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/capuccino.png" alt="Cappuccino">
+            <div class="overlay">
+                <p>Equal parts espresso, steamed milk, and foam. A classic Italian treat.</p>
+            </div>
+        </div>
+        <h3>Cappuccino</h3>
+        <p class="price">PHP 260.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Cappuccino', 260.99)">Buy Now</button>
+            <button onclick="addToCart('Cappuccino', 260.99)">Add +</button>
+        </div>
+    </div>
 
-                <div class="product-card">
-                    <img src="coffee/caramel machiato.png" alt="Caramel Macchiato">
-                    <h3>Caramel Macchiato</h3>
-                    <p class="price">PHP 280.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Caramel Macchiato', 280.99)">Buy Now</button>
-                        <button onclick="addToCart('Caramel Macchiato', 280.99)">Add +</button>
-                    </div>
-                </div>
+    <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/caramel machiato.png" alt="Caramel Macchiato">
+            <div class="overlay">
+                <p>Vanilla syrup, steamed milk, espresso, and a drizzle of caramel sauce.</p>
+            </div>
+        </div>
+        <h3>Caramel Macchiato</h3>
+        <p class="price">PHP 280.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Caramel Macchiato', 280.99)">Buy Now</button>
+            <button onclick="addToCart('Caramel Macchiato', 280.99)">Add +</button>
+        </div>
+    </div>
 
-                <div class="product-card">
-                    <img src="coffee/cafe latte.png" alt="Cafe Latte">
-                    <h3>Cafe Latte</h3>
-                    <p class="price">PHP 270.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Cafe Latte', 270.99)">Buy Now</button>
-                        <button onclick="addToCart('Cafe Latte', 270.99)">Add +</button>
-                    </div>
-                </div>
+    <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/cafe latte.png" alt="Cafe Latte">
+            <div class="overlay">
+                <p>Espresso with plenty of steamed milk and a thin layer of foam.</p>
+            </div>
+        </div>
+        <h3>Cafe Latte</h3>
+        <p class="price">PHP 270.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Cafe Latte', 270.99)">Buy Now</button>
+            <button onclick="addToCart('Cafe Latte', 270.99)">Add +</button>
+        </div>
+    </div>
 
-                <div class="product-card">
-                    <img src="coffee/cafe mocha.png" alt="Cafe Mocha">
-                    <h3>Cafe Mocha</h3>
-                    <p class="price">PHP 275.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Cafe Mocha', 275.99)">Buy Now</button>
-                        <button onclick="addToCart('Cafe Mocha', 275.99)">Add +</button>
-                    </div>
-                </div>
+    <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/cafe mocha.png" alt="Cafe Mocha">
+            <div class="overlay">
+                <p>Espresso meets chocolate syrup and steamed milk. A dessert in a cup.</p>
+            </div>
+        </div>
+        <h3>Cafe Mocha</h3>
+        <p class="price">PHP 275.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Cafe Mocha', 275.99)">Buy Now</button>
+            <button onclick="addToCart('Cafe Mocha', 275.99)">Add +</button>
+        </div>
+    </div>
 
-                 <div class="product-card">
-                    <img src="coffee/lavender cafe.png" alt="Lavender Cafe">
-                    <h3>Lavender Cafe</h3>
-                    <p class="price">PHP 290.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Lavender Cafe', 290.99)">Buy Now</button>
-                        <button onclick="addToCart('Lavender Cafe', 290.99)">Add +</button>
-                    </div>
-                </div>
+        <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/lavender cafe.png" alt="Lavender Cafe">
+            <div class="overlay">
+                <p>A floral twist on your daily brew. Infused with calming lavender.</p>
+            </div>
+        </div>
+        <h3>Lavender Cafe</h3>
+        <p class="price">PHP 290.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Lavender Cafe', 290.99)">Buy Now</button>
+            <button onclick="addToCart('Lavender Cafe', 290.99)">Add +</button>
+        </div>
+    </div>
 
-                <div class="product-card">
-                    <img src="coffee/vanilla latte.png" alt="Vanilla Latte">
-                    <h3>Vanilla Latte</h3>
-                    <p class="price">PHP 270.99</p>
-                    <div class="card-buttons">
-                        <button onclick="buyNow('Vanilla Latte', 270.99)">Buy Now</button>
-                        <button onclick="addToCart('Vanilla Latte', 270.99)">Add +</button>
-                    </div>
+    <div class="product-card">
+        <div class="img-container">
+            <img src="coffee/vanilla latte.png" alt="Vanilla Latte">
+            <div class="overlay">
+                <p>Smooth espresso and creamy milk sweetened with vanilla syrup.</p>
+            </div>
+        </div>
+        <h3>Vanilla Latte</h3>
+        <p class="price">PHP 270.99</p>
+        <div class="card-buttons">
+            <button onclick="buyNow('Vanilla Latte', 270.99)">Buy Now</button>
+            <button onclick="addToCart('Vanilla Latte', 270.99)">Add +</button>
+                 </div>
+            </div>
+        </div>
+ </div>
+
+        
+        <div class="container" id="cart-view" style="display: none;"> 
+            <div class="checkout-card" style="text-align: center;"> 
+
+                <h2 style="color: #5a4634;">Your Cart</h2>
+
+                <div id="cart-items-list" style="width: 100%; min-height: 50px; margin: 20px 0;"></div>
+
+                <h3 style="margin-bottom: 20px; color: #5a4634;">Total: <span id="cart-total">PHP 0.00</span></h3>
+
+                <div class="card-buttons" style="justify-content: center;">
+                    <button class="button" onclick="navigate('shop')" style="margin-top: 0; background-color: #5a4634; color: aliceblue;">Keep Shopping</button>
+                    <button class="button" onclick="checkout()" style="margin-top: 0; background-color: #5a4634; color: aliceblue;" >Proceed to checkout</button>
                 </div>
             </div>
         </div>
 
-        <div class="container" id="cart-view" style="display: none;">
-            <h2>Your Cart</h2>
-            <div id="cart-items-list" style="width: 100%; max-width: 600px; text-align: left; margin-bottom: 20px;">
-                </div>
-            <h3 style="margin-bottom: 20px;">Total: <span id="cart-total">PHP 0.00</span></h3>
-            <div class="card-buttons">
-                <button class="button" onclick="navigate('shop')">Keep Shopping</button>
-                <button class="button" onclick="checkout()">Proceed to Checkout</button>
-            </div>
-        </div>
        
         <div class="container" id="about" style="display: none;">
             <h2><b>About Us</b></h2>
@@ -164,61 +208,100 @@ Your comfort matters, and your coffee is just a tap away.
                 </div>
             </div>
         </div>
+   <script>
+    let cart = [];
 
+/*animation in home screen*/
+    document.addEventListener("DOMContentLoaded", () => {
+        const home = document.getElementById('home');
+        home.style.display = 'flex';
+        resetAnimations(home);
+    });
 
-        <script>
-            let cart = [];
+    function navigate(sectionId) {
+        document.querySelectorAll('.container').forEach(div => {
+            div.style.display = 'none';
+        });
 
-            function navigate(section) {
-                document.querySelectorAll('.container').forEach(div => div.style.display = 'none');
-                document.getElementById(section).style.display = 'flex';
-            }
-           
-            function addToCart(productName, price) {
-                let item = { name: productName, price: price };
-                cart.push(item);
-                
-                document.getElementById('cart-count').innerText = `(${cart.length})`;
-                alert(`Added ${productName} to cart.`);
-            }
+        const target = document.getElementById(sectionId);
+        target.style.display = 'flex';
 
-            function buyNow(productName, price) {
-                cart = [{ name: productName, price: price }];
-                checkout();
-            }
+        //animation for the new content
+        resetAnimations(target);
+    }
+    
+    // (Rewinds the animation so it plays again)
+    function resetAnimations(element) {
+        //things to move
+        const children = element.querySelectorAll('h1, p, .button, .product-card, h2, .summary-item');
+        
+        children.forEach(child => {
+            child.style.animation = 'none'; // Stop animation
+            child.offsetHeight;             // to reset browser brain
+            child.style.animation = '';     // Start animation again
+        });
+    }
+   
+    // 4. Cart Logic
+    function addToCart(productName, price) {
+        let item = { name: productName, price: price };
+        cart.push(item);
+        
+        document.getElementById('cart-count').innerText = `(${cart.length})`;
+        console.log(`Added ${productName} to cart.`);
+        
+        const cartBtn = document.querySelector("button[onclick='showCart()']");
+        cartBtn.style.transform = "scale(1.2)";
+        setTimeout(() => cartBtn.style.transform = "scale(1)", 200);
+    }   
 
-            function showCart() {
-                navigate('cart-view');
-                let listContainer = document.getElementById('cart-items-list');
-                let totalElement = document.getElementById('cart-total');
-                
-                listContainer.innerHTML = '';
-                let total = 0;
+    function buyNow(productName, price) {
+        cart = [{ name: productName, price: price }];
+        checkout();
+    }
 
-                if (cart.length === 0) {
-                    listContainer.innerHTML = '<p style="text-align:center; color: #5a4634;">Your cart is empty.</p>';
-                } else {
-                    cart.forEach((item, index) => {
-                        total += item.price;
-                        listContainer.innerHTML += `
-                            <div style="background: rgba(255,255,255,0.4); padding: 10px; margin-bottom: 10px; border-radius: 5px; display: flex; justify-content: space-between; border-bottom: 1px solid #5a4634;">
-                                <span>${index + 1}. ${item.name}</span>
-                                <span>PHP ${item.price.toFixed(2)}</span>
-                            </div>
-                        `;
-                    });
-                }
-                totalElement.innerText = 'PHP ' + total.toFixed(2);
-            }
+    function showCart() {
+        navigate('cart-view');
+        let listContainer = document.getElementById('cart-items-list');
+        let totalElement = document.getElementById('cart-total');
+        
+        listContainer.innerHTML = '';
+        let total = 0;
 
-            function checkout() {
-                if (cart.length === 0) {
-                    alert("Your cart is empty!");
-                } else {
-                    localStorage.setItem('myCart', JSON.stringify(cart));
-                    window.location.href = 'checkout.html';
-                }
-            }
-        </script>
+        if (cart.length === 0) {
+            listContainer.innerHTML = '<p style="text-align:center; color: #555;">Your cart is empty.</p>';
+        } else {
+            cart.forEach((item, index) => {
+                total += item.price;
+                // added the animation delay here for the some effect
+                listContainer.innerHTML += `
+                    <div class="summary-item" style="color: #333; border-bottom: 1px dashed #ccc; padding: 10px 0; display: flex; justify-content: space-between; align-items: center; opacity: 0; animation: fadeInUp 0.5s ease forwards ${index * 0.1}s;">
+                        <span>${index + 1}. ${item.name}</span>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>PHP ${item.price.toFixed(2)}</span>
+                            <button type="button" class="remove-btn" onclick="removeItem(${index})">X</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        totalElement.innerText = 'PHP ' + total.toFixed(2);
+    }
+
+    function removeItem(index) {
+        cart.splice(index, 1);
+        document.getElementById('cart-count').innerText = `(${cart.length})`;
+        showCart(); 
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+        } else {
+            localStorage.setItem('myCart', JSON.stringify(cart));
+            window.location.href = 'checkout.html';
+        }
+    }
+</script>
     </body>
 </html>
